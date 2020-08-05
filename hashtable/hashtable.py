@@ -50,7 +50,7 @@ class HashTable:
         
 
 
-    def fnv1(self, key, seed=0):
+    def fnv1(self, key):
         """
         FNV-1 Hash, 64-bit
 
@@ -58,15 +58,15 @@ class HashTable:
         """
 
         # Your code here
-        FNV_prime = 9812038928
-        offset_basis = 123412390427189
+        FNV_prime = 1099511628211
+        offset_basis = 14695981039346656037
 
         # FNV-1a Hash Function
-        hash = offset_basis + seed
+        hashed = offset_basis
         for char in key:
-            hash = hash * FNV_prime
-            hash = hash ^ ord(char)
-        return hash
+            hashed = hashed * FNV_prime
+            hashed = hashed ^ ord(char)
+        return hashed
 
     def djb2(self, key):
         """
