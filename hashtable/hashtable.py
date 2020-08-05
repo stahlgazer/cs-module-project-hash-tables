@@ -163,7 +163,17 @@ class HashTable:
         Implement this.
         """
         # Your code here
-
+        storage_copy = self.storage
+        self.capacity = new_capacity
+        self.storage = [None] * self.capacity
+        for slot in range(len(storage_copy)):
+            if storage_copy[slot]:
+                current_node = storage_copy[slot]
+                while current_node:
+                    self.put(current_node.key, current_node.value)
+                    current_node = current_node.next
+        
+        return self.get_load_factor()
 
 
 if __name__ == "__main__":
