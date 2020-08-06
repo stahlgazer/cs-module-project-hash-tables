@@ -1,5 +1,6 @@
 # Your code here
-
+import math
+import random
 
 def slowfun_too_slow(x, y):
     v = math.pow(x, y)
@@ -9,13 +10,25 @@ def slowfun_too_slow(x, y):
 
     return v
 
+my_table = {}
+
 def slowfun(x, y):
     """
     Rewrite slowfun_too_slow() in here so that the program produces the same
     output, but completes quickly instead of taking ages to run.
     """
     # Your code here
+    key = (x, y)
+    if my_table.get(key) is not None:
+        return my_table[key]
 
+    value = math.pow(x, y)
+    value = math.factorial(value)
+    value //= (x + y)
+    value %= 982451653
+    my_table[key] = value
+
+    return value
 
 
 # Do not modify below this line!
