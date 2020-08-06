@@ -1,8 +1,6 @@
 def no_dups(s):
     # Your code here
     # turn string into array, use sorted set
-    if len(s) < 1:
-        return s  
     splitted = s.split(' ')
     # print(splitted)
     no_dupes = sorted(set(splitted), key=splitted.index)
