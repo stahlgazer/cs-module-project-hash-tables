@@ -3,9 +3,9 @@ def no_dups(s):
     # turn string into array, use sorted set
     splitted = s.split(' ')
     # print(splitted)
-    no_dupes = sorted(set(splitted), key=splitted.index)
+    no_dupes = ' '.join(sorted(set(splitted), key=splitted.index))
     # print(no_dupes)
-    return ' '.join(no_dupes)
+    return no_dupes
 
 
 if __name__ == "__main__":
